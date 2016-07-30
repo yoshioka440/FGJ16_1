@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Anzai/Test1.unity
-  - enabled: 1
-    path: Assets/Anzai/Scenes/Result.unity
+    path: Assets/Team_1/Scenes/Beta/Title.unity
   - enabled: 1
     path: Assets/Team_1/Scenes/yoshioka2_SS.unity
+  - enabled: 1
+    path: Assets/Anzai/Scenes/Result.unity
