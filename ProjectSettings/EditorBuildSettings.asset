@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Anzai/Test1.unity
   - enabled: 1
     path: Assets/Anzai/Scenes/Result.unity
+  - enabled: 1
+    path: Assets/Team_1/Scenes/yoshioka2_SS.unity
