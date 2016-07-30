@@ -2,62 +2,127 @@
 using System.Collections;
 
 public class PlayerManager : MonoBehaviour {
+    public float flyingTime = 2.0f;
+    public GameObject pointGroup;
 
-	public float flyingTime = 2.0f;
-	public GameObject pointGroup;
+    bool isLanding;
+    Vector3 prevPosition;
+    Vector3 nowPosition;
+    Vector3 nextPosition;
+    float jumpTime;
 
-	bool isLanding;
-	Vector3 nextPosition;
-	float jumpTime;
-	// 次の地点の番号（初期位置が0）
-	int nextPoint;
+    public int nowPoint;
+    // 次の地点の番号（初期位置が0）
+    int nextPoint;
 
-	// Use this for initialization
-	void Start () {
-		Initialize ();
-	}
+    GageManager m_gageManager;
+    float m_JumpPower;
+    float m_Cooltime;
 
-	void Initialize () {
-		isLanding = true;
-		jumpTime = 0;
-		nextPoint = 0;
-		nextPosition = pointGroup.transform.GetChild (nextPoint).transform.position;
-	}
+    // Use this for initialization
+    void Start()
+    {
+        Initialize();
+        m_gageManager = GameObject.Find("GameManager").GetComponent<GageManager>();
+    }
 
-	// Update is called once per frame
-	void Update () {
-		if (isLanding) {
-			if (Input.GetMouseButton (0) || Input.touchCount > 0) {
-				Debug.Log ("Press Left Click");
-				isLanding = false;
+    void Initialize()
+    {
+        isLanding = true;
+        jumpTime = 0;
+        nowPoint = -1;
+        m_JumpPower = 0;
+        m_Cooltime = 0;
+        prevPosition = this.transform.position;
+        nowPosition = this.transform.position;
+        nextPosition = pointGroup.transform.GetChild(0).transform.position;
+    }
 
-				if (nextPoint != 0) {
-					this.transform.Rotate (0, 180, 0);
-				}
-			}
-		} else {
-			Debug.Log ("Jump");
-			Jump ();
-			if (this.transform.position == nextPosition) {
-				isLanding = true;
-				jumpTime = 0;
-				nextPoint++;
-				if (nextPoint >= pointGroup.transform.childCount) {
-					nextPoint = 0;
-				}
-				nextPosition = pointGroup.transform.GetChild (nextPoint).transform.position;
-			}
-		}
+    // Update is called once per frame
+    void Update()
+    {
+        if (isLanding)
+        {
+            m_Cooltime = 0.0f;
 
-	}
+            if (Input.GetMouseButton(0) || Input.touchCount > 0)
+            {
+                Debug.Log("Press Left Click");
+                isLanding = false;
 
-	void Jump () {
-//		nextPosition = new Vector3 (0, 5, 0);
-//		nextPosition = pointTransform.position;
+                if (nowPoint % 2 == 1)
+                {
+                   this.transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
+                else
+                {
+                   this.transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
 
+                m_gageManager.OnTouchEventGage();
+                m_JumpPower = m_gageManager.slider.value;
 
-		jumpTime += Time.deltaTime;
+                nowPosition = transform.position;
+            }
+        }
+        else
+        {
+            Debug.Log("Jump");
+            Jump();
 
-		this.transform.position = Vector3.Lerp (this.transform.position, nextPosition, jumpTime / flyingTime);
-	}
+            m_Cooltime += Time.deltaTime;
+
+            if (m_Cooltime >= 0.5f)
+            {
+
+                if (this.transform.position == nextPosition)
+                {
+                    nowPoint++;
+                    isLanding = true;
+                    jumpTime = 0;
+                    nextPosition = pointGroup.transform.GetChild(nowPoint + 1).transform.position;
+                    prevPosition = pointGroup.transform.GetChild(nowPoint - 1).transform.position;
+                    nowPosition = transform.position;
+
+                }
+                else if (this.transform.position == prevPosition)
+                {
+                    if(nowPoint == 0)
+                    {
+                        return;
+                    }
+                    nowPoint--;
+                    isLanding = true;
+                    jumpTime = 0;
+
+                    nextPosition = pointGroup.transform.GetChild(nowPoint + 1).transform.position;
+                    prevPosition = pointGroup.transform.GetChild(nowPoint - 1).transform.position;
+                    nowPosition = transform.position;
+
+                }
+            }
+        }
+    }
+
+    void Jump()
+    {
+        //		nextPosition = new Vector3 (0, 5, 0);
+        //		nextPosition = pointTransform.position;
+
+        jumpTime += Time.deltaTime;
+
+        if (m_JumpPower >= 0.8f)
+        {
+            this.transform.position = Vector3.Lerp(this.transform.position, nextPosition, jumpTime / flyingTime);
+        }
+        else if (m_JumpPower <= 0.2f)
+        {
+            this.transform.position = Vector3.Lerp(this.transform.position, nextPosition / 2, jumpTime / flyingTime);
+        }
+        else
+        {
+            this.transform.position = Vector3.Lerp(this.transform.position, prevPosition, jumpTime / flyingTime);
+        }
+    }
+
 }
