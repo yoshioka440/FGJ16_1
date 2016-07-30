@@ -14,12 +14,19 @@ public class ItemUI : MonoBehaviour {
         m_Image.sprite = m_Sprites[0];
     }
 
+	/// <summary>
+	/// アイテムの数値を取得する
+	/// </summary>
+	/// <value>The number.</value>
     public int Num
     {
         get { return m_ItemNum; }
         set { m_ItemNum = value; }
     }
 
+	/// <summary>
+	/// Itemから呼ぶ
+	/// </summary>
     public void AddItem()
     {
         m_ItemNum++;

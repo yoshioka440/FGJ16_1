@@ -7,6 +7,10 @@ public class Timer : MonoBehaviour {
     private float m_TotalTime;
     private bool m_isStop = false;
 
+	/// <summary>
+	/// Gets or sets the total time.
+	/// </summary>
+	/// <value>The total time.</value>
     public float TotalTime
     {
         get { return m_TotalTime; }
