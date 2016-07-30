@@ -19,4 +19,8 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void MoveToNextScene () {
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("Result");
+	}
 }

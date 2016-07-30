@@ -5,6 +5,11 @@ public class PlayerManager : MonoBehaviour {
     public float flyingTime = 2.0f;
     public GameObject pointGroup;
 
+	public Sprite player;
+	public Sprite player_hold;
+	public Sprite player_jump_0;
+	public Sprite player_jump_1;
+
     bool isLanding;
     Vector3 prevPosition;
     Vector3 nowPosition;
@@ -63,6 +68,7 @@ public class PlayerManager : MonoBehaviour {
                 m_JumpPower = m_gageManager.slider.value;
 
                 nowPosition = transform.position;
+				GetComponent<SpriteRenderer> ().sprite = player_jump_1;
             }
         }
         else
@@ -74,7 +80,6 @@ public class PlayerManager : MonoBehaviour {
 
             if (m_Cooltime >= 0.5f)
             {
-
                 if (this.transform.position == nextPosition)
                 {
                     nowPoint++;
@@ -83,7 +88,7 @@ public class PlayerManager : MonoBehaviour {
                     nextPosition = pointGroup.transform.GetChild(nowPoint + 1).transform.position;
                     prevPosition = pointGroup.transform.GetChild(nowPoint - 1).transform.position;
                     nowPosition = transform.position;
-
+					GetComponent<SpriteRenderer> ().sprite = player_jump_1;
                 }
                 else if (this.transform.position == prevPosition)
                 {
@@ -100,6 +105,7 @@ public class PlayerManager : MonoBehaviour {
                     nowPosition = transform.position;
 
                 }
+				GetComponent<SpriteRenderer> ().sprite = player_hold;
             }
         }
     }
