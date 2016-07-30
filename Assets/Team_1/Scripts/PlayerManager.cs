@@ -30,6 +30,10 @@ public class PlayerManager : MonoBehaviour {
 			if (Input.GetMouseButton (0) || Input.touchCount > 0) {
 				Debug.Log ("Press Left Click");
 				isLanding = false;
+
+				if (nextPoint != 0) {
+					this.transform.Rotate (0, 180, 0);
+				}
 			}
 		} else {
 			Debug.Log ("Jump");
@@ -50,6 +54,7 @@ public class PlayerManager : MonoBehaviour {
 	void Jump () {
 //		nextPosition = new Vector3 (0, 5, 0);
 //		nextPosition = pointTransform.position;
+
 
 		jumpTime += Time.deltaTime;
 

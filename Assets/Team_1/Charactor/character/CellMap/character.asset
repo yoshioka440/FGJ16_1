@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c3e2fd293409448b70e6699a65a249, type: 3}
+  m_Name: character
+  m_EditorClassIdentifier: 
+  ListDataCellMap:
+  - Name: character
+    SizeOriginal: {x: 1080, y: 1080}
+    ListCell:
+    - Name: Face
+      Rectangle:
+        serializedVersion: 2
+        x: 760
+        y: 3
+        width: 319
+        height: 346
+      Pivot: {x: 159.5, y: 173}
+    - Name: FrontHair
+      Rectangle:
+        serializedVersion: 2
+        x: 510
+        y: 2
+        width: 256
+        height: 372
+      Pivot: {x: 128, y: 186}
+    - Name: BackHair
+      Rectangle:
+        serializedVersion: 2
+        x: 226
+        y: 3
+        width: 280
+        height: 370
+      Pivot: {x: 140, y: 185}
+    - Name: Neck
+      Rectangle:
+        serializedVersion: 2
+        x: 71
+        y: 6
+        width: 111
+        height: 109
+      Pivot: {x: 55.5, y: 54.5}
+    - Name: Face002
+      Rectangle:
+        serializedVersion: 2
+        x: 61
+        y: 125
+        width: 113
+        height: 176
+      Pivot: {x: 56.5, y: 88}
+    - Name: Body001
+      Rectangle:
+        serializedVersion: 2
+        x: 856
+        y: 528
+        width: 210
+        height: 232
+      Pivot: {x: 105, y: 116}
+    - Name: Body002
+      Rectangle:
+        serializedVersion: 2
+        x: 675
+        y: 800
+        width: 404
+        height: 272
+      Pivot: {x: 202, y: 136}
+    - Name: Upper arm
+      Rectangle:
+        serializedVersion: 2
+        x: 894
+        y: 369
+        width: 185
+        height: 148
+      Pivot: {x: 72, y: 66}
+    - Name: Arm
+      Rectangle:
+        serializedVersion: 2
+        x: 755
+        y: 381
+        width: 138
+        height: 118
+      Pivot: {x: 52, y: 59}
+    - Name: Hand
+      Rectangle:
+        serializedVersion: 2
+        x: 647
+        y: 390
+        width: 109
+        height: 114
+      Pivot: {x: 54.5, y: 57}
+    - Name: HAnd002
+      Rectangle:
+        serializedVersion: 2
+        x: 509
+        y: 393
+        width: 127
+        height: 104
+      Pivot: {x: 63.5, y: 52}
+    - Name: Asi
+      Rectangle:
+        serializedVersion: 2
+        x: 372
+        y: 384
+        width: 141
+        height: 136
+      Pivot: {x: 70.5, y: 68}
+    - Name: The thighs
+      Rectangle:
+        serializedVersion: 2
+        x: 706
+        y: 519
+        width: 111
+        height: 218
+      Pivot: {x: 59, y: 72}
+    - Name: Leg
+      Rectangle:
+        serializedVersion: 2
+        x: 589
+        y: 539
+        width: 75
+        height: 168
+      Pivot: {x: 43, y: 58}
