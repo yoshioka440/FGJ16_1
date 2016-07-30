@@ -3,6 +3,9 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
+	public float elapsedTime { private set; get; }
+
+
 	void Awake () {
 		Application.targetFrameRate = 30;
 	}
