@@ -85,8 +85,14 @@ public class PlayerManager : MonoBehaviour {
                     nowPoint++;
                     isLanding = true;
                     jumpTime = 0;
-                    nextPosition = pointGroup.transform.GetChild(nowPoint + 1).transform.position;
-                    prevPosition = pointGroup.transform.GetChild(nowPoint - 1).transform.position;
+
+                    // !!! kunii:配列のオーバーロード対策
+                    if (nowPoint > 0)
+                    {
+                        nextPosition = pointGroup.transform.GetChild(nowPoint + 1).transform.position;
+                        prevPosition = pointGroup.transform.GetChild(nowPoint - 1).transform.position;
+                    }
+
                     nowPosition = transform.position;
 					GetComponent<SpriteRenderer> ().sprite = player_jump_1;
                 }
@@ -100,8 +106,12 @@ public class PlayerManager : MonoBehaviour {
                     isLanding = true;
                     jumpTime = 0;
 
-                    nextPosition = pointGroup.transform.GetChild(nowPoint + 1).transform.position;
-                    prevPosition = pointGroup.transform.GetChild(nowPoint - 1).transform.position;
+                    // !!! kunii:配列のオーバーロード対策
+                    if (nowPoint > 0)
+                    {
+                        nextPosition = pointGroup.transform.GetChild(nowPoint + 1).transform.position;
+                        prevPosition = pointGroup.transform.GetChild(nowPoint - 1).transform.position;
+                    }
                     nowPosition = transform.position;
 
                 }
