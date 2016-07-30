@@ -3,36 +3,26 @@ using System.Collections;
 
 public class Item : MonoBehaviour {
 
-    private int m_ItemNum = 0;
-
-    public int Num
-    {
-        get { return m_ItemNum; }
-        set { m_ItemNum = value; }
-    }
-
+    ItemUI m_ItemUI;
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+        m_ItemUI = GameObject.Find("Canvas_UI").GetComponent<ItemUI>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
 	    
 	}
 
-    private void AddItem()
-    {
-        m_ItemNum++;
-    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
             //ゲット
-            AddItem();
+            m_ItemUI.AddItem();
 
             //あたり判定消す
             GetComponent<Collider2D>().enabled = false;
