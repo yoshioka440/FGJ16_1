@@ -859,6 +859,7 @@ GameObject:
   - 4: {fileID: 632095743}
   - 114: {fileID: 632095742}
   - 114: {fileID: 632095744}
+  - 114: {fileID: 632095745}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -906,6 +907,18 @@ MonoBehaviour:
   mainCamera: {fileID: 634439667}
   player: {fileID: 1372289897}
   cameraSpeed: 1
+--- !u!114 &632095745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 632095741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 816b93c45a12f4266aabc32dc95817ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1546234231}
 --- !u!1 &634439663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,7 +1899,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 3, y: 0}
+  m_AnchoredPosition: {x: -3, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1468146954
