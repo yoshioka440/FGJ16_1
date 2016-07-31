@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour {
     Vector3 prevPosition;
     Vector3 nowPosition;
     Vector3 nextPosition;
+    // !!! kunii:スタート位置保持追加
+    Vector3 startPosition;
     float jumpTime;
 
     public int nowPoint;
@@ -42,6 +44,8 @@ public class PlayerManager : MonoBehaviour {
         prevPosition = this.transform.position;
         nowPosition = this.transform.position;
         nextPosition = pointGroup.transform.GetChild(0).transform.position;
+        // !!! kunii:スタート位置保持追加
+        startPosition = this.transform.position;
     }
 
     // Update is called once per frame
@@ -83,40 +87,49 @@ public class PlayerManager : MonoBehaviour {
             {
                 if (this.transform.position == nextPosition)
                 {
+                    // !!! kunii:NEXT位置の設定は補正なし
                     nowPoint++;
                     isLanding = true;
                     jumpTime = 0;
 
-                    // !!! kunii:配列のオーバーロード対策
-                    if (nowPoint > 0)
-                    {
-                        nextPosition = pointGroup.transform.GetChild(nowPoint + 1).transform.position;
-                        prevPosition = pointGroup.transform.GetChild(nowPoint - 1).transform.position;
-                    }
-
+                    nextPosition = pointGroup.transform.GetChild(nowPoint + 1).transform.position;
+                    prevPosition = pointGroup.transform.GetChild(nowPoint - 1).transform.position;
                     nowPosition = transform.position;
-					GetComponent<SpriteRenderer> ().sprite = player_jump_1;
+                    GetComponent<SpriteRenderer>().sprite = player_jump_1;
                 }
                 else if (this.transform.position == prevPosition)
                 {
-                    if(nowPoint == 0)
-                    {
-                        return;
-                    }
                     nowPoint--;
                     isLanding = true;
                     jumpTime = 0;
 
+                    // !!! kunii:PREV位置の設定は補正あり（pointGroupの配列境界対策）
                     // !!! kunii:配列のオーバーロード対策
                     if (nowPoint > 0)
                     {
                         nextPosition = pointGroup.transform.GetChild(nowPoint + 1).transform.position;
+                    }
+                    else
+                    {
+                        nowPoint = 0;
+                    }
+
+                    if (nowPoint > 1)
+                    {
                         prevPosition = pointGroup.transform.GetChild(nowPoint - 1).transform.position;
                     }
-                    nowPosition = transform.position;
+                    else
+                    {
+                        // !!! kunii:スタート位置へ戻す
+                        prevPosition = startPosition;
+                    }
 
+                    nowPosition = transform.position;
                 }
-				GetComponent<SpriteRenderer> ().sprite = player_hold;
+                GetComponent<SpriteRenderer>().sprite = player_hold;
+
+                // !!! kunii:位置配列インデックス確認用
+                //Debug.Log("Jump Count : " + nowPoint);
             }
         }
     }
@@ -134,7 +147,9 @@ public class PlayerManager : MonoBehaviour {
         }
         else if (m_JumpPower <= 0.2f)
         {
-            this.transform.position = Vector3.Lerp(this.transform.position, nextPosition / 2, jumpTime / flyingTime);
+            //this.transform.position = Vector3.Lerp(this.transform.position, nextPosition, jumpTime / flyingTime);
+            // !!! kunii:パワー足らずは前回箇所に戻す
+            this.transform.position = Vector3.Lerp(this.transform.position, prevPosition, jumpTime / flyingTime);
         }
         else
         {
