@@ -5,7 +5,13 @@ public class PlayerManager : MonoBehaviour {
     public float flyingTime = 2.0f;
     public GameObject pointGroup;
 
-    bool isLanding;
+    public bool isLanding;
+    public bool IsLanding
+    {
+        get { return isLanding; }
+    }
+
+
     Vector3 prevPosition;
     Vector3 nowPosition;
     Vector3 nextPosition;
@@ -59,7 +65,7 @@ public class PlayerManager : MonoBehaviour {
                    this.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
 
-                m_gageManager.OnTouchEventGage();
+ //               m_gageManager.OnTouchEventGage();
                 m_JumpPower = m_gageManager.slider.value;
 
                 nowPosition = transform.position;
