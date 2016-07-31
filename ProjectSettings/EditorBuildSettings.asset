@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/Team_1/Scenes/Beta/Main.unity
   - enabled: 1
     path: Assets/Team_1/Scenes/Beta/Result.unity
+  - enabled: 1
+    path: Assets/Team_1/Scenes/Beta/GameOver.unity

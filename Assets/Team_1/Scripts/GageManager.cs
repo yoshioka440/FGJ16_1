@@ -19,6 +19,11 @@ public class GageManager : MonoBehaviour {
 		elapsedTime += Time.deltaTime * 1.6f;
 //		Debug.Log(Mathf.Sin (Time.deltaTime));
 		slider.value = Mathf.PingPong (elapsedTime, 1);
+
+		if (Input.GetButtonDown("Jump")) {
+			Debug.Log("Restart!");
+			UnityEngine.SceneManagement.SceneManager.LoadScene (1);
+		}
 	}
 
 	// ボタンが押された時の処理

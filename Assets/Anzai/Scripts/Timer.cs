@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
+	public float gameTotalTime = 120.0f;
+
     private float m_TotalTime;
     private bool m_isStop = false;
 
@@ -22,7 +24,7 @@ public class Timer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        m_TotalTime = 120.0f;
+		m_TotalTime = gameTotalTime;
         m_Image[0].sprite = m_Sprites[0];
         m_Image[1].sprite = m_Sprites[0];
         m_Image[2].sprite = m_Sprites[0];
