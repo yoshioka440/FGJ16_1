@@ -23,4 +23,8 @@ public class GameManager : MonoBehaviour {
 	public void MoveToNextScene () {
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("Result");
 	}
+
+	public void MoveToGameOverScene () {
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("GameOver");
+	}
 }

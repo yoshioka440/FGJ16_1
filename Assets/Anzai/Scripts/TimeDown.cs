@@ -11,6 +11,9 @@ public class TimeDown : MonoBehaviour {
     PlayerManager m_PlayerManager;
 
     public Sprite[] m_Sprites;
+	public GameManager gameManager;
+
+	float startTime;
 
 	// Use this for initialization
 	void Start () {
@@ -23,22 +26,24 @@ public class TimeDown : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (m_PlayerManager.isLanding)
-        {
-            m_LimitTime -= Time.deltaTime;
+		startTime += Time.deltaTime;
 
-            if(m_LimitTime <= 0)
-            {
-                //耐えられなくて落ちる処理
-              //  transform.root.gameObject.AddComponent<Rigidbody2D>();
-            }
+		// スタートからある程度時間が経ったら、カウントダウンを導入
+		if (startTime > 20.0f) {
+			if (m_PlayerManager.isLanding) {
+				m_LimitTime -= Time.deltaTime;
 
-           m_Image.sprite = m_Sprites[(int)m_LimitTime];
-        }
-       else
-        {
-            m_LimitTime = setTime;
-        }
+				if (m_LimitTime <= 0) {
+					//耐えられなくて落ちる処理
+					//  transform.root.gameObject.AddComponent<Rigidbody2D>();
+					gameManager.MoveToGameOverScene ();
+				}
+
+				m_Image.sprite = m_Sprites [(int)m_LimitTime];
+			} else {
+				m_LimitTime = setTime;
+			}
+		}
 
 	}
 }
