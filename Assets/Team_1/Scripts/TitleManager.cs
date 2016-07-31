@@ -10,7 +10,7 @@ public class TitleManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.touchCount > 0) {
+		if (Input.GetMouseButtonDown(0) || Input.touchCount > 0) {
 			UnityEngine.SceneManagement.SceneManager.LoadScene (1);
 //			var sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene ();
 //			if (sceneName == "Title") {
