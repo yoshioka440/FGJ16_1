@@ -30,6 +30,7 @@ sysinfo.txt
 *.unitypackage
 /ios*
 /webgl*
+/mac*
 
 # External Assets
 /Assets/SpriteStudio*
