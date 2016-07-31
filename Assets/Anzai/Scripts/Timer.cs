@@ -32,15 +32,13 @@ public class Timer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (!m_isStop)
+		if (!m_isStop)
         {
             m_TotalTime -= Time.deltaTime;
         }
-
-        else if (m_TotalTime <= 0.0f)
+        if (m_TotalTime <= 0.0f)
         {
-            m_TotalTime = 0.0f;
+			m_TotalTime = 0.0f;
             TimerStop();
         }
 
@@ -51,6 +49,9 @@ public class Timer : MonoBehaviour {
     public void TimerStop()
     {
         m_isStop = true;
+		Debug.Log ("Go To GameOver Scene");
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("GameOver");
+		Debug.Log (UnityEngine.SceneManagement.SceneManager.GetActiveScene().ToString());
     }
 
 
