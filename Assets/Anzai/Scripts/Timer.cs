@@ -8,6 +8,10 @@ public class Timer : MonoBehaviour {
 
     private float m_TotalTime;
     private bool m_isStop = false;
+    public bool IsStop
+    {
+        get;set;
+    }
 
 	/// <summary>
 	/// Gets or sets the total time.

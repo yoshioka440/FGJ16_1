@@ -27,11 +27,15 @@ public class PlayerManager : MonoBehaviour {
     float m_JumpPower;
     float m_Cooltime;
 
+    //SE
+    SoundManager m_SoundManager;
+
     // Use this for initialization
     void Start()
     {
         Initialize();
         m_gageManager = GameObject.Find("GameManager").GetComponent<GageManager>();
+        m_SoundManager = GameObject.Find("GameManager").GetComponent<SoundManager>();
     }
 
     void Initialize()
@@ -98,6 +102,8 @@ public class PlayerManager : MonoBehaviour {
 					}
 					nowPosition = transform.position;
                     GetComponent<SpriteRenderer>().sprite = player_jump_1;
+
+                    m_SoundManager.SoundRings(0);
                 }
                 else if (this.transform.position == prevPosition)
                 {
@@ -132,6 +138,8 @@ public class PlayerManager : MonoBehaviour {
 
                 // !!! kunii:位置配列インデックス確認用
                 //Debug.Log("Jump Count : " + nowPoint);
+                m_SoundManager.SoundRings(0);
+
             }
         }
     }
