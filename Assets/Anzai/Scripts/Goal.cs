@@ -16,7 +16,7 @@ public class Goal : MonoBehaviour
     }
 
 
-	void OnCollisionEnter2D(Collision2D other)
+	void OnTriggerEnter2D(Collider2D other)
     {
 		Debug.Log ("OnTriggerEnter2D!");
 		Debug.Log (other.gameObject.tag);
@@ -30,8 +30,8 @@ public class Goal : MonoBehaviour
 //            m_Timer.TimerStop();
 
             //データ保存 
-            PlayerPrefs.SetInt("ResultTime", (int)m_Timer.TotalTime);
-            PlayerPrefs.SetInt("ResultItem", (int)m_ItemUI.Num);
+//            PlayerPrefs.SetInt("ResultTime", (int)m_Timer.TotalTime);
+//            PlayerPrefs.SetInt("ResultItem", (int)m_ItemUI.Num);
 
 			gameManager.GetComponent<GameManager> ().MoveToNextScene ();
         }
