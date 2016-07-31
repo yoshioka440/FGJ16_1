@@ -16,13 +16,8 @@ public class GageManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-<<<<<<< HEAD
-		elapsedTime += Time.deltaTime;
-//		Debug.Log(Mathf.Sin (Time.deltaTime));
-=======
 		elapsedTime += Time.deltaTime * 1.6f;
-		Debug.Log(Mathf.Sin (Time.deltaTime));
->>>>>>> 5ce40d1a26a6b4109dbaed1d7f31ca8af8393625
+//		Debug.Log(Mathf.Sin (Time.deltaTime));
 		slider.value = Mathf.PingPong (elapsedTime, 1);
 	}
 
