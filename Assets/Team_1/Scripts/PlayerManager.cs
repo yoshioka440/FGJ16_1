@@ -93,8 +93,10 @@ public class PlayerManager : MonoBehaviour {
                     jumpTime = 0;
 
                     nextPosition = pointGroup.transform.GetChild(nowPoint + 1).transform.position;
-                    prevPosition = pointGroup.transform.GetChild(nowPoint - 1).transform.position;
-                    nowPosition = transform.position;
+					if (nowPoint != 0) {
+						prevPosition = pointGroup.transform.GetChild (nowPoint - 1).transform.position;
+					}
+					nowPosition = transform.position;
                     GetComponent<SpriteRenderer>().sprite = player_jump_1;
                 }
                 else if (this.transform.position == prevPosition)
