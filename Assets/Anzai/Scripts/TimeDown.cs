@@ -23,7 +23,7 @@ public class TimeDown : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (m_PlayerManager.IsLanding)
+        if (m_PlayerManager.isLanding)
         {
             m_LimitTime -= Time.deltaTime;
 
