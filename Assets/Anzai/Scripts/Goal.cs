@@ -11,8 +11,9 @@ public class Goal : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-//        m_Timer = GameObject.Find("Canvas_UI").GetComponent<Timer>();
-//        m_ItemUI = GameObject.Find("Canvas_UI").GetComponent<ItemUI>();
+        m_Timer = GameObject.Find("Canvas_UI").GetComponent<Timer>();
+        //        m_ItemUI = GameObject.Find("Canvas_UI").GetComponent<ItemUI>();
+        LoadScene.distance = (int)transform.position.y;
     }
 
 
@@ -27,7 +28,9 @@ public class Goal : MonoBehaviour
             //プレイヤーが喜ぶとか
 
             //タイマー止める
-//            m_Timer.TimerStop();
+            m_Timer.TimerStop();
+
+            LoadScene.time = (int)m_Timer.TotalTime;
 
             //データ保存 
 //            PlayerPrefs.SetInt("ResultTime", (int)m_Timer.TotalTime);
