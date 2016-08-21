@@ -259,7 +259,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011854944460}
   - 212: {fileID: 212000013270127960}
-  - 58: {fileID: 58000011678126586}
   - 114: {fileID: 114000010965652822}
   m_Layer: 0
   m_Name: BirdController (1)
@@ -277,7 +276,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011081911274}
   - 212: {fileID: 212000012085875520}
-  - 58: {fileID: 58000010660727756}
   - 114: {fileID: 114000013551371504}
   m_Layer: 0
   m_Name: BirdController
@@ -523,20 +521,6 @@ Transform:
   - {fileID: 4000013078248848}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!58 &58000010660727756
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014045488670}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.7281308
 --- !u!58 &58000010725458496
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -550,7 +534,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.47665167
+  m_Radius: 1.5177217
 --- !u!58 &58000010962209052
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -571,20 +555,6 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010177186478}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.7281308
---- !u!58 &58000011678126586
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014032900792}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

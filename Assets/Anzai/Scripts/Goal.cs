@@ -25,7 +25,7 @@ public class Goal : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
     {
 		Debug.Log ("OnTriggerEnter2D!");
-		Debug.Log (other.gameObject.tag);
+		Debug.Log (other.gameObject.name);
 
         //プレイヤーが到着したら
 		if (other.gameObject.tag == "Player")

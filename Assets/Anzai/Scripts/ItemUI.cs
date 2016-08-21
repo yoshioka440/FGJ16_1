@@ -6,12 +6,13 @@ public class ItemUI : MonoBehaviour {
 
     private int m_ItemNum = 0;
 
-    public Image m_Image;
+    public Image[] m_Image;
     public Sprite[] m_Sprites;
 
     void Start()
     {
-        m_Image.sprite = m_Sprites[0];
+        m_Image[0].sprite = m_Sprites[0];
+		m_Image[1].sprite = m_Sprites[0];
     }
 
 	/// <summary>
@@ -30,6 +31,12 @@ public class ItemUI : MonoBehaviour {
     public void AddItem()
     {
         m_ItemNum++;
-        m_Image.sprite = m_Sprites[m_ItemNum];
+
+		if (m_ItemNum >= 10) {
+			m_Image [0].sprite = m_Sprites [(int)((m_ItemNum * 0.1f) % 10)];
+			m_Image [1].sprite = m_Sprites [(int)(m_ItemNum % 10)];
+		} else {
+			m_Image[1].sprite = m_Sprites[m_ItemNum];
+		}
     }
 }

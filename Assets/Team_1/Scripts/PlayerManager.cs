@@ -30,6 +30,13 @@ public class PlayerManager : MonoBehaviour {
     //SE
     SoundManager m_SoundManager;
 
+	public Timer timer;
+
+	bool isDamaging = false;
+
+	public ItemUI itemUI;
+
+
     // Use this for initialization
     void Start()
     {
@@ -103,7 +110,14 @@ public class PlayerManager : MonoBehaviour {
 					nowPosition = transform.position;
                     GetComponent<SpriteRenderer>().sprite = player_jump_1;
 
-                    m_SoundManager.SoundRings(0);
+					// ポイントの取得
+					if (nowPoint != (pointGroup.transform.childCount - 1)) {
+						if (pointGroup.transform.GetChild (nowPoint).GetComponent<SpriteRenderer> ().sprite != null) {
+							pointGroup.transform.GetChild (nowPoint).GetComponent<SpriteRenderer> ().sprite = null;
+							itemUI.AddItem ();
+							m_SoundManager.SoundRings (2);
+						}
+					}
                 }
                 else if (this.transform.position == prevPosition)
                 {
@@ -138,7 +152,7 @@ public class PlayerManager : MonoBehaviour {
 
                 // !!! kunii:位置配列インデックス確認用
                 //Debug.Log("Jump Count : " + nowPoint);
-                m_SoundManager.SoundRings(0);
+//                m_SoundManager.SoundRings(0);
 
             }
         }
@@ -166,5 +180,51 @@ public class PlayerManager : MonoBehaviour {
             this.transform.position = Vector3.Lerp(this.transform.position, prevPosition, jumpTime / flyingTime);
         }
     }
+
+	/// <summary>
+	/// Raises the trigger enter2 d event.
+	/// </summary>
+	/// <param name="col">Col.</param>
+	void OnTriggerEnter2D (Collider2D col) {
+		Debug.Log (col.gameObject.name);
+
+		if (col.gameObject.name == "Bird" && isDamaging == false) {
+			Debug.Log ("鳥と衝突！");
+			isDamaging = true;
+			// 音がなる
+			m_SoundManager.SoundRings(0);
+			// 被ダメ演出
+			StartCoroutine(Dameged ());
+			// 時間減少
+			timer.DecreaseTime ();
+
+			StartCoroutine (TimeElapsed ());
+		}
+	}
+
+	IEnumerator Dameged ()
+	{
+		GetComponent<SpriteRenderer> ().enabled = false;
+		yield return new WaitForSeconds (0.1f);
+		GetComponent<SpriteRenderer> ().enabled = true;
+		yield return new WaitForSeconds (0.1f);
+		GetComponent<SpriteRenderer> ().enabled = false;
+		yield return new WaitForSeconds (0.1f);
+		GetComponent<SpriteRenderer> ().enabled = true;
+		yield return new WaitForSeconds (0.1f);
+		GetComponent<SpriteRenderer> ().enabled = false;
+		yield return new WaitForSeconds (0.1f);
+		GetComponent<SpriteRenderer> ().enabled = true;
+		yield return new WaitForSeconds (0.1f);
+		GetComponent<SpriteRenderer> ().enabled = false;
+		yield return new WaitForSeconds (0.1f);
+		GetComponent<SpriteRenderer> ().enabled = true;
+	}
+
+	IEnumerator TimeElapsed ()
+	{
+		yield return new WaitForSeconds (3.0f);
+		isDamaging = false;
+	}
 
 }
