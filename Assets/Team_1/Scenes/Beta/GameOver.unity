@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: []
+  bgm: []
 --- !u!82 &181433440
 AudioSource:
   m_ObjectHideFlags: 0
@@ -263,11 +264,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 72a0827606cf6fe4daace5dbe531ac34, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 49cbdefcc15d146e381fabe173a31b5d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128

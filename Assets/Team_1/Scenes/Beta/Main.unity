@@ -1769,6 +1769,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1e0399d15702c484db686929df91ec88, type: 3}
   - {fileID: 8300000, guid: d7f3875cec6a84c20ac155fa8f11aca9, type: 3}
   - {fileID: 8300000, guid: 6f2d11846ba0549a89c05922a49413b6, type: 3}
+  bgm: []
 --- !u!82 &632095748
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1778,7 +1779,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 61595134578d7db4ab3ab0ff5a98ee75, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 43b092ed4cb8b43989297a526acd6078, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2210,7 +2211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1654c59c74cb7442b7118f46e4347f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTotalTime: 10000
+  gameTotalTime: 60
   m_Image:
   - {fileID: 340028398}
   - {fileID: 2020398115}
@@ -3358,19 +3359,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010735122334, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.4
+      value: -6.8
       objectReference: {fileID: 0}
     - target: {fileID: 4000013287770306, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.2
+      value: -8.8
       objectReference: {fileID: 0}
     - target: {fileID: 4000011258706726, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.3
+      value: -5.3
       objectReference: {fileID: 0}
     - target: {fileID: 4000010668745570, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.1
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 4000013078248848, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
       propertyPath: m_LocalPosition.y
