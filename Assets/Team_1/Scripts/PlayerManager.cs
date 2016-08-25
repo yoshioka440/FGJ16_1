@@ -33,6 +33,7 @@ public class PlayerManager : MonoBehaviour {
 	public Timer timer;
 
 	bool isDamaging = false;
+	bool isFail = false;
 
 	public ItemUI itemUI;
 
@@ -165,7 +166,7 @@ public class PlayerManager : MonoBehaviour {
 
         jumpTime += Time.deltaTime;
 
-        if (m_JumpPower >= 0.8f)
+        if (m_JumpPower >= 0.7f)
         {
             this.transform.position = Vector3.Lerp(this.transform.position, nextPosition, jumpTime / flyingTime);
         }
@@ -174,6 +175,10 @@ public class PlayerManager : MonoBehaviour {
             //this.transform.position = Vector3.Lerp(this.transform.position, nextPosition, jumpTime / flyingTime);
             // !!! kunii:パワー足らずは前回箇所に戻す
             this.transform.position = Vector3.Lerp(this.transform.position, prevPosition, jumpTime / flyingTime);
+//			isFail = true;
+//			if (isFail) {
+//				m_SoundManager.SoundRings (3);
+//			}
         }
         else
         {
