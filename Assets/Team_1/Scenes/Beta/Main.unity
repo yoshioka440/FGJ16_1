@@ -2649,7 +2649,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.6578676
+  m_Radius: 1.1796975
 --- !u!212 &1372289900
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3321,7 +3321,7 @@ Prefab:
     - target: {fileID: 58000012095959654, guid: 2221983ebea6a48a6b76fcf4dcb3680e,
         type: 2}
       propertyPath: m_Radius
-      value: 1.4766786
+      value: 1.0526867
       objectReference: {fileID: 0}
     - target: {fileID: 58000010725458496, guid: 2221983ebea6a48a6b76fcf4dcb3680e,
         type: 2}
@@ -3346,21 +3346,21 @@ Prefab:
     - target: {fileID: 58000010962209052, guid: 2221983ebea6a48a6b76fcf4dcb3680e,
         type: 2}
       propertyPath: m_Radius
-      value: 1.2049885
+      value: 1.0485706
       objectReference: {fileID: 0}
     - target: {fileID: 58000012372051684, guid: 2221983ebea6a48a6b76fcf4dcb3680e,
         type: 2}
       propertyPath: m_Radius
-      value: 1.4202821
+      value: 0.8883858
       objectReference: {fileID: 0}
     - target: {fileID: 58000010725458496, guid: 2221983ebea6a48a6b76fcf4dcb3680e,
         type: 2}
       propertyPath: m_Radius
-      value: 1.1749749
+      value: 0.8963876
       objectReference: {fileID: 0}
     - target: {fileID: 4000010735122334, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.8
+      value: -4.2
       objectReference: {fileID: 0}
     - target: {fileID: 4000013287770306, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3368,19 +3368,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011258706726, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.3
+      value: -6.99
       objectReference: {fileID: 0}
     - target: {fileID: 4000010668745570, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.4
+      value: -2.41
       objectReference: {fileID: 0}
     - target: {fileID: 4000013078248848, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 25.3
+      value: 26.92
       objectReference: {fileID: 0}
     - target: {fileID: 4000011081911274, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.41
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010019373116, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.44
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 58000013519042526, guid: 2221983ebea6a48a6b76fcf4dcb3680e, type: 2}
